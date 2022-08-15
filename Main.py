@@ -87,9 +87,9 @@ class Evaluate:
     for char in expression:
        if char.isdigit():
           self.push(char)
-        else:
-           b = int(self.pop())
-           a = int(self.pop())
+       else:
+        b = int(self.pop())
+        a = int(self.pop())
         if char == "+":
           result = a + b
         elif char == "-":
