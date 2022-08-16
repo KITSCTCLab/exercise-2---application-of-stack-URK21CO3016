@@ -26,9 +26,9 @@ class Evaluate:
       True if it is empty, else returns False.
     """
     if len(self.stack) == 0:
-      return True
+        return True
     else:
-      return False 
+        return False 
       
 
 
@@ -40,8 +40,8 @@ class Evaluate:
     """
     # Write your code here
     if len(self.stack) > 0:
-      x = self.stack.pop()
-      return x
+        x = self.stack.pop()
+        return x
 
 
   def push(self, operand):
@@ -64,15 +64,17 @@ class Evaluate:
     """
     # Write your code here
     value = True
-
+    
     valid = ['+','-','*','/']
-
+    
     for char in expression:
-         if char.isdigit or char in valid:
-          continue
-         else:
-          value = False
-          return value
+        if char.isdigit or char in valid:
+            continue
+        else:
+            value = False
+    
+    return value
+
 
 
   def evaluate_postfix_expression(self, expression):
@@ -85,23 +87,24 @@ class Evaluate:
     """
     # Write your code here
     for char in expression:
-       if char.isdigit():
-          self.push(char)
-       else:
-        b = int(self.pop())
-        a = int(self.pop())
-        if char == "+":
-          result = a + b
-        elif char == "-":
-          result = a - b
-        elif char == '*':
-          result = a * b
-        elif char == '/':
-          result = a / b
-
-        self.push(result)
-
-        return int(self.stack[0])
+        if char.isdigit():
+            self.push(char)
+        else:
+          b = int(self.pop())
+          a = int(self.pop())
+            
+          if char == "+":
+            result = a + b
+          elif char == "-":
+             result = a - b
+          elif char == '*':
+             result = a * b
+          elif char == '/':
+             result = a / b
+            
+          self.push(result)
+    
+    return int(self.stack[0])
 
 # Do not change the following code
 postfix_expression = input()  # Read postfix expression
